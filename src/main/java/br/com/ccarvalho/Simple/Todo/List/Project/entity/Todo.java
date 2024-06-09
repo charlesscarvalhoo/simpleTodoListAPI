@@ -30,7 +30,7 @@ public class Todo {
         this.priority = priority;
     }
 
-    public Todo(String name, String description, boolean completed, int priority) {
+    public Todo(@NotBlank String name, @NotBlank String description, boolean completed, int priority) {
         this.name = name;
         this.description = description;
         this.completed = completed;

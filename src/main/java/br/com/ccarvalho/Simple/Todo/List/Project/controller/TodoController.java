@@ -3,6 +3,7 @@ package br.com.ccarvalho.Simple.Todo.List.Project.controller;
 import br.com.ccarvalho.Simple.Todo.List.Project.entity.Todo;
 import br.com.ccarvalho.Simple.Todo.List.Project.service.TodoService;
 import jakarta.validation.Valid;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
