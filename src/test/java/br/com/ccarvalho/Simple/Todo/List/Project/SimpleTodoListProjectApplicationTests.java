@@ -33,14 +33,12 @@ class SimpleTodoListProjectApplicationTests {
 
 	@Test
 	void TestCreatTodosFailure() {
-		var todo = new Todo("","", false, 0);
 		webTestClient
 				.post()
 				.uri("/todos")
-				.bodyValue(todo)
+				.bodyValue(new Todo("","", false, 0))
 				.exchange()
 				.expectStatus().isBadRequest();
 	}
-
 
 }
