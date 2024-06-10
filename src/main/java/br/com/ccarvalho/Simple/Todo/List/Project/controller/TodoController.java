@@ -32,7 +32,7 @@ public class TodoController {
     }
 
     @DeleteMapping("{id}")
-    public List<Todo> delete(@PathVariable("id") Long id){
+    public List<Todo> delete(@Valid @PathVariable Long id){
         return todoService.delete(id);
     }
 }
