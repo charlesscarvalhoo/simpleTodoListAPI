@@ -3,6 +3,7 @@ package br.com.ccarvalho.Simple.Todo.List.Project.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
+
 @Entity
 @Table(name ="tb_todos")
 public class Todo {
@@ -10,11 +11,12 @@ public class Todo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "Task must have a name!")
     private String name;
 
-    @NotBlank
+    @NotBlank(message = "Tasks must have a description!")
     private String description;
+
 
     private boolean completed;
     private int priority;
@@ -22,7 +24,7 @@ public class Todo {
     public Todo(){
     }
 
-    public Todo(Long id, String name, String description, boolean completed, int priority) {
+    public Todo(Long id, @NotBlank String name, @NotBlank String description, boolean completed, int priority) {
         this.id = id;
         this.name = name;
         this.description = description;

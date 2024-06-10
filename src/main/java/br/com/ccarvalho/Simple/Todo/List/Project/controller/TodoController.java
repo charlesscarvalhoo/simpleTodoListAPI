@@ -3,7 +3,6 @@ package br.com.ccarvalho.Simple.Todo.List.Project.controller;
 import br.com.ccarvalho.Simple.Todo.List.Project.entity.Todo;
 import br.com.ccarvalho.Simple.Todo.List.Project.service.TodoService;
 import jakarta.validation.Valid;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,7 +17,7 @@ public class TodoController {
     }
 
     @PostMapping
-    public List<Todo> create(@RequestBody @Valid Todo todo){
+    public List<Todo> create(@Valid @RequestBody Todo todo){
         return todoService.create(todo);
     }
 
@@ -28,7 +27,7 @@ public class TodoController {
     }
 
     @PutMapping
-    public List<Todo> update(@RequestBody Todo todo){
+    public List<Todo> update(@Valid @RequestBody Todo todo){
         return todoService.update(todo);
     }
 
