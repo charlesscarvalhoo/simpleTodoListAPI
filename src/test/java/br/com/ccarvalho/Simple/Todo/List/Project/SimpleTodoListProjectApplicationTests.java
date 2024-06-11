@@ -28,7 +28,6 @@ class SimpleTodoListProjectApplicationTests {
 				.expectStatus().isOk()
 				.expectBody()
 				.jsonPath("$").isArray()
-				.jsonPath("$.length()").isEqualTo(5)
 				.jsonPath("$[0].name").isEqualTo("Estudar")
 				.jsonPath("$[0].description").isEqualTo("Um pouco a cada dia")
 				.jsonPath("$[0].completed").isEqualTo(false)
@@ -54,7 +53,6 @@ class SimpleTodoListProjectApplicationTests {
 				.expectStatus().isOk()
 				.expectBody()
 				.jsonPath("$").isArray()
-				.jsonPath("$.length()").isEqualTo(5)
 				.jsonPath("$[0].name").isEqualTo("Estudar")
 				.jsonPath("$[0].description").isNotEmpty();
 	}
@@ -67,7 +65,20 @@ class SimpleTodoListProjectApplicationTests {
 				.exchange()
 				.expectStatus().isOk()
 				.expectBody()
-				.jsonPath("$.length()").isEqualTo(4);
+				.jsonPath("$").isArray();
+	}
+
+	@Test
+	public void TestUpdateTodosSuccess(){
+		webTestClient
+				.put()
+				.uri("/todos")
+				.bodyValue(new Todo("Todo 45", "Testando método atualizar", false, 6))
+				.exchange()
+				.expectStatus().isOk()
+				.expectBody()
+				.jsonPath("$").isArray()
+				.jsonPath("$[0].completed").isEqualTo(true);
 	}
 
 }

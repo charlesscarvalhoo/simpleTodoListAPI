@@ -28,6 +28,7 @@ public class TodoService {
     }
 
     public List<Todo> update(Todo todo){
+        todo.setCompleted(true);
         todoRepository.save(todo);
         return list();
     }

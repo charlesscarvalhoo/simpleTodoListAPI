@@ -18,14 +18,13 @@ public class Todo {
     @NotBlank(message = "Tasks must have a description!")
     private String description;
 
-    @AssertFalse
     private boolean completed;
     private int priority;
 
     public Todo(){
     }
 
-    public Todo(Long id, @NotBlank String name, @NotBlank String description, @AssertFalse boolean completed, int priority) {
+    public Todo(Long id, @NotBlank String name, @NotBlank String description, boolean completed, int priority) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -33,7 +32,7 @@ public class Todo {
         this.priority = priority;
     }
 
-    public Todo(@NotBlank String name, @NotBlank String description, @AssertFalse boolean completed, int priority) {
+    public Todo(@NotBlank String name, @NotBlank String description, boolean completed, int priority) {
         this.name = name;
         this.description = description;
         this.completed = completed;
